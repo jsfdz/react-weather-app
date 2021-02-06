@@ -1,13 +1,243 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+::after,
+::before {
+  font-family: 'Rimouski';
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #293251;
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+}
+
+.weather {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.weather h1 {
+  text-align: center;
+  font-size: 2.8em;
+  margin: 0 auto;
+  padding: 15px 0;
+  color: #293251;
+  border-radius: 10px 10px 0 0;
+}
+
+.notification {
+  background-color: #f8d7da;
+}
+
+.notification p {
+  color: #721c24;
+  font-size: 1.2em;
+  margin: 0;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.weather-body {
+  padding: 15px 0;
+  background-color: #eef6ff;
+}
+
+.weather-body img {
+  display: block;
+  margin: 0 auto;
+}
+
+.temp {
+  padding: 0;
+  margin: 0;
+  color: #293251;
+  font-size: 4em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.temp span {
+  color: #293251;
+  font-size: 0.7em;
+}
+
+.description {
+  padding: 8px;
+  margin: 0;
+  color: #293251;
+  text-align: center;
+  font-size: 1.9em;
+  text-transform: capitalize;
+}
+
+.location {
+  margin: 0;
+  padding: 0;
+  color: #293251;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.checkbox-form {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.toggle {
+  display: inline-block;
+  font-size: 1em;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle-label {
+  display: block;
+  height: inherit;
+  font-size: 1em;
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.toggle-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-text {
+  vertical-align: text-top;
+  transition: color 0.3s ease;
+  font-size: 0.7935rem;
+  color: #222;
+  opacity: 1;
+}
+
+.toggle-text:last-child {
+  opacity: 0.7;
+}
+
+.toggle-switch {
+  display: inline-block;
+  font-size: 1.4em;
+  width: 2.199em;
+  height: 1.19em;
+  padding: 0.1em;
+  margin: 0 0.2em;
+  border-radius: 0.6em;
+  background: #293251;
+}
+
+.toggle-handle {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background: white;
+  border-radius: 50%;
+  will-change: margin-left;
+  transition: all 0.3s ease;
+}
+
+.toggle-input:checked + label .toggle-text {
+  opacity: 1;
+}
+
+.toggle-input:checked + label .toggle-text:first-child {
+  opacity: 0.7;
+}
+
+.toggle-input:checked + label .toggle-handle {
+  margin-left: 1em;
+}
+
+.weather-more-info {
+  display: flex;
+  width: 100%;
+  padding: 15px 0;
+  justify-content: space-around;
+  align-content: center;
+  text-align: left;
+  border-radius: 0 0 10px 10px;
+}
+
+.wind,
+.humidity,
+.pressure {
+  display: flex;
+  flex-basis: 9em;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 0.8em;
+  justify-content: center;
+}
+
+.weather-more-info .icon {
+  font-size: 2em;
+  color: #293251;
+  display: inline-flex;
+  will-change: transform;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  width: 1em;
+  height: 1em;
+  margin: 0.3em;
+}
+
+.weather-more-info .value {
+  display: flex;
+  flex-flow: column nowrap;
+  color: #293251;
+}
+
+.weather-more-info .value span:last-child {
+  opacity: 0.7;
+}
+
+.skeleton {
+  width: 100%;
+  padding: 0 15px;
+  padding-bottom: 15px;
+}
+
+.skeleton .image,
+.skeleton .line {
+  background-image: linear-gradient(90deg, #eef6ff 0px, #fefefe 30px, #eef6ff 60px);
+  background-size: calc(450px + 100px);
+  animation: refresh 2s infinite ease-out;
+}
+
+.skeleton .image {
+  height: 320px;
+  width: 100%;
+}
+
+.skeleton .line {
+  height: 16px;
+  width: 100%;
+  padding: 30px 0;
+  margin-bottom: 0;
+}
+
+@keyframes refresh {
+  0% {
+    background-position: calc(-100px);
+  }
+  40%,
+  100% {
+    background-position: 450px;
+  }
 }
