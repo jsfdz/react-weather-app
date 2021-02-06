@@ -1,11 +1,11 @@
 *,
 ::after,
 ::before {
-  font-family: 'Rimouski';
   box-sizing: border-box;
 }
 
 body {
+  font-family: 'Rimouski';
   background-color: #293251;
   margin: 0;
   display: flex;
@@ -16,6 +16,7 @@ body {
 
 #root {
   width: 100%;
+  padding: 0 15px;
 }
 
 .weather {
@@ -28,7 +29,7 @@ body {
 
 .weather h1 {
   text-align: center;
-  font-size: 2.8em;
+  font-size: 1.8em;
   margin: 0 auto;
   padding: 15px 0;
   color: #293251;
@@ -61,9 +62,8 @@ body {
   padding: 0;
   margin: 0;
   color: #293251;
-  font-size: 4em;
+  font-size: 3.5em;
   text-align: center;
-  cursor: pointer;
 }
 
 .temp span {
@@ -76,7 +76,7 @@ body {
   margin: 0;
   color: #293251;
   text-align: center;
-  font-size: 1.9em;
+  font-size: 1.3em;
   text-transform: capitalize;
 }
 
@@ -120,13 +120,13 @@ body {
 .toggle-text {
   vertical-align: text-top;
   transition: color 0.3s ease;
-  font-size: 0.7935rem;
+  font-size: 1.1rem;
   color: #222;
   opacity: 1;
 }
 
 .toggle-text:last-child {
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 .toggle-switch {
@@ -155,7 +155,7 @@ body {
 }
 
 .toggle-input:checked + label .toggle-text:first-child {
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 .toggle-input:checked + label .toggle-handle {
@@ -163,6 +163,7 @@ body {
 }
 
 .weather-more-info {
+  font-family: sans-serif;
   display: flex;
   width: 100%;
   padding: 15px 0;
@@ -181,7 +182,7 @@ body {
   align-content: center;
   align-items: center;
   height: 100%;
-  font-size: 0.8em;
+  font-size: 0.6em;
   justify-content: center;
 }
 
@@ -201,10 +202,13 @@ body {
   display: flex;
   flex-flow: column nowrap;
   color: #293251;
+  font-size: 0.86rem;
+  font-weight: 600;
 }
 
 .weather-more-info .value span:last-child {
   opacity: 0.7;
+  font-weight: 100;
 }
 
 .skeleton {

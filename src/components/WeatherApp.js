@@ -69,31 +69,32 @@ export const WeatherApp = () => {
 
     return (
         <div className="weather">
-            <h1> WEATHER </h1>
+            <h1> Weather </h1>
 
             <Message msg={errorMsg} />
 
-            { loading
-                ?
-                <Skeleton />
-                :
-                <>
-                    <WeatherBody
-                        icon={weatherData.iconId}
-                        toggle={toggle}
-                        temp={weatherData.temperature}
-                        description={weatherData.description}
-                        city={weatherData.city}
-                        country={weatherData.country}
-                        onClick={onClick}
-                    />
+            {
+                loading
+                    ?
+                    <Skeleton />
+                    :
+                    <>
+                        <WeatherBody
+                            icon={weatherData.iconId}
+                            toggle={toggle}
+                            temp={weatherData.temperature}
+                            description={weatherData.description}
+                            city={weatherData.city}
+                            country={weatherData.country}
+                            onClick={onClick}
+                        />
 
-                    <WeatherMoreInfo
-                        wind={weatherData.wind}
-                        humidity={weatherData.humidity}
-                        pressure={weatherData.pressure}
-                    />
-                </>
+                        <WeatherMoreInfo
+                            wind={weatherData.wind}
+                            humidity={weatherData.humidity}
+                            pressure={weatherData.pressure}
+                        />
+                    </>
             }
         </div>
     )

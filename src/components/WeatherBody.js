@@ -9,10 +9,12 @@ export const WeatherBody = ({ icon, toggle, temp, description, city, country, on
             <div className="temp">
                 {
                     toggle
-                        ? <>
+                        ?
+                        <>
                             {celsiusToFahrenheit(temp)} ° <span>F</span>
                         </>
-                        : <>
+                        :
+                        <>
                             {temp}°<span>C</span>
                         </>
                 }
