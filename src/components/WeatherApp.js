@@ -11,7 +11,6 @@ export const WeatherApp = () => {
         GEOLOCATION = navigator.geolocation,
         KELVIN = 273
 
-
     const
         [coordinates, setCoordinates] = useState({}),
         [weatherData, setWeatherData] = useState({}),
@@ -19,10 +18,22 @@ export const WeatherApp = () => {
         [toggle, setToggle] = useState(false),
         [errorMsg, setErrorMsg] = useState('')
 
-
     useEffect(() => {
+        const onError = () => {
+            fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=82afd6dd808d4c13858aaec0b121f9c2`)
+                .then(response => response.ok ? response.json() : Promise.reject(response))
+                .then(data => {
+                    const coords = {
+                        latitude: data.latitude,
+                        longitude: data.longitude
+                    }
+                    setCoordinates(coords)
+                })
+        }
+
         setLoading(true)
-        if ('geolocation' in navigator) GEOLOCATION.getCurrentPosition(position => setCoordinates(position.coords))
+
+        if ('geolocation' in navigator) GEOLOCATION.getCurrentPosition(position => setCoordinates(position.coords), onError)
     }, [GEOLOCATION])
 
     useEffect(() => {
@@ -51,6 +62,7 @@ export const WeatherApp = () => {
         if (typeof coordinates.latitude !== 'undefined') {
             getWeather(coordinates)
         }
+
     }, [coordinates])
 
     const onClick = () => setToggle(!toggle)
