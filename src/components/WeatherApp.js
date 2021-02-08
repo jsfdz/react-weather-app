@@ -68,7 +68,10 @@ export const WeatherApp = () => {
     const onClick = () => setToggle(!toggle)
 
     return (
-        <div className="weather">
+        <div className="weather" style={{
+            '--current-color': `var(--color-${weatherData.iconId})`,
+            '--current-bg': `var(--bg-${weatherData.iconId})`
+        }}>
             <h1> Weather </h1>
 
             <Message msg={errorMsg} />

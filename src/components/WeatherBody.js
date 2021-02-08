@@ -22,6 +22,6 @@ export const WeatherBody = ({ icon, toggle, temp, description, city, country, on
             <div className="description">{description}</div>
             <div className="location">{city}, {country}</div>
             <Toggle onClick={onClick} />
-        </div>
+        </div >
     )
 }
